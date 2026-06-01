@@ -39,30 +39,24 @@ class BookingController extends Controller
                 $totalPrice = $price;
 
                 $booking = Booking::create([
-                    'booking_code' => $bookingCode,
-                    'booking_type' => 'vehicle',
-                    'user_id' => $user->id,
-                    'agent_id' => $vehicle->agent_id,
-                    'vehicle_id' => $vehicle->id,
-                    'customer_name' => $user->name,
-                    'customer_email' => $user->email,
-                    'customer_phone' => $user->phone ?? '',
-                    'participants' => $request->participants,
-                    'travel_date' => $request->travel_date,
-                    'pickup_location' => $request->pickup_location,
-                    'dropoff_location' => $request->dropoff_location,
-                    'origin_city' => $request->pickup_location,
-                    'destination' => $request->dropoff_location,
-                    'total_price' => $totalPrice,
-                    'sub_total' => $totalPrice,
-                    'payment_status' => 'pending',
-                    'expired_at' => now()->addDay(1),
-                    'departure_date' => $request->travel_date,
-                    'passengers' => $request->participants,
-                    'platform_fee' => 0,
-                    'total_amount' => $totalPrice,
-                    'status' => 'pending'
-                ]);
+    'booking_code' => $bookingCode,
+    'booking_type' => 'package',
+    'user_id' => $user->id,
+    'agent_id' => $package->agent_id,
+    'tour_package_id' => $package->id,
+    'customer_name' => $user->name,
+    'customer_email' => $user->email,
+    'customer_phone' => $user->phone ?? '',
+    'participants' => $request->participants,
+    'travel_date' => $request->travel_date,
+    'total_price' => $totalPrice,
+    'sub_total' => $totalPrice,
+    'payment_status' => 'pending',
+    'expired_at' => now()->addDay(1),
+    'platform_fee' => 0,
+    'total_amount' => $totalPrice,  // ← juga tidak ada, hapus kalau error
+    'status' => 'pending'
+]);
 
                 $vehicle->update(['status' => 'booked']);
                 
