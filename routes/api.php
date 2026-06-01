@@ -24,7 +24,7 @@ Route::get('/tour-packages', [TourPackageController::class, 'index']);
 Route::get('/tour-packages/{id}', [TourPackageController::class, 'show']);
 Route::get('/tour-packages/{id}/check-availability', [TourPackageController::class, 'checkAvailability']);
 
-// Kendaraan
+// Kendaraan    
 Route::get('/vehicles', [VehicleController::class, 'index']);
 Route::get('/vehicles/{id}', [VehicleController::class, 'show']);
 
@@ -42,4 +42,10 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/my-bookings', [BookingController::class, 'myBookings']);
     Route::get('/bookings/{id}', [BookingController::class, 'show']);
     Route::delete('/bookings/{id}/cancel', [BookingController::class, 'cancel']);
+
+    Route::get('/my-bookings', [BookingController::class, 'myBookings']);
+    Route::post('/bookings', [BookingController::class, 'store']);
+    Route::get('/bookings/{bookingCode}/payment', [BookingController::class, 'getPayment']);
+    Route::post('/bookings/{bookingCode}/confirm-payment', [BookingController::class, 'confirmPayment']);
+    Route::delete('/bookings/{id}', [BookingController::class, 'cancel']);
 });
