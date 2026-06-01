@@ -13,7 +13,6 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-
 // Route dummy untuk mencegah error di landing page
 Route::get('/login', function () {
     return redirect()->route('agen.login');
@@ -22,6 +21,7 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return redirect()->route('agen.register');
 })->name('register');
+
 // ==============================================
 // ROUTE UNTUK AGEN
 // ==============================================
@@ -63,20 +63,6 @@ Route::prefix('agen')->name('agen.')->group(function () {
         Route::resource('vehicles', App\Http\Controllers\Agen\VehicleController::class);
         Route::put('/vehicles/{id}/status', [App\Http\Controllers\Agen\VehicleController::class, 'updateStatus'])->name('vehicles.update-status');
 
-        // Travel Requests
-        Route::get('/travel-requests', [App\Http\Controllers\Agen\TravelRequestController::class, 'index'])->name('travel-requests.index');
-        Route::get('/travel-requests/{id}', [App\Http\Controllers\Agen\TravelRequestController::class, 'show'])->name('travel-requests.show');
-        Route::post('/travel-requests/{id}/assign-vehicle', [App\Http\Controllers\Agen\TravelRequestController::class, 'assignVehicle'])->name('travel-requests.assign-vehicle');
-        Route::post('/travel-requests/{id}/approve', [App\Http\Controllers\Agen\TravelRequestController::class, 'approve'])->name('travel-requests.approve');
-        Route::post('/travel-requests/{id}/reject', [App\Http\Controllers\Agen\TravelRequestController::class, 'reject'])->name('travel-requests.reject');
-        Route::post('/travel-requests/{id}/complete', [App\Http\Controllers\Agen\TravelRequestController::class, 'complete'])->name('travel-requests.complete');
-
-        Route::resource('route-packages', App\Http\Controllers\Agen\RoutePackageController::class);
-        Route::put('/route-packages/{id}/toggle-status', [App\Http\Controllers\Agen\RoutePackageController::class, 'toggleStatus'])->name('route-packages.toggle-status');
-
-        // Kendaraan
-        Route::resource('vehicles', App\Http\Controllers\Agen\VehicleController::class);
-        Route::put('/vehicles/{id}/status', [App\Http\Controllers\Agen\VehicleController::class, 'updateStatus'])->name('vehicles.update-status');
         // Profil Agen
         Route::get('/profile', [App\Http\Controllers\Agen\ProfileController::class, 'index'])->name('profile.index');
         Route::put('/profile', [App\Http\Controllers\Agen\ProfileController::class, 'update'])->name('profile.update');

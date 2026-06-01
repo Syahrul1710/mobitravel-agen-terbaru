@@ -97,7 +97,6 @@
             <li><a href="{{ route('agen.destinations.index') }}">📍 Destinasi</a></li>
             <li><a href="{{ route('agen.tour-packages.index') }}">✈️ Paket Wisata</a></li>
             <li><a href="{{ route('agen.vehicles.index') }}" class="active">🚗 Kendaraan</a></li>
-            <li><a href="{{ route('agen.travel-requests.index') }}">📝 Permintaan Travel</a></li>
             <li><a href="{{ route('agen.bookings.index') }}">📋 Pemesanan</a></li>
             <li><a href="{{ route('agen.profile.index') }}">👤 Profil</a></li>
         </ul>

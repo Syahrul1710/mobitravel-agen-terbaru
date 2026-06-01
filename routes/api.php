@@ -1,17 +1,45 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AgenController;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\SearchController;
+use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\DestinationController;
+use App\Http\Controllers\Api\TourPackageController;
+use App\Http\Controllers\Api\VehicleController;
+use App\Http\Controllers\Api\BookingController;
+use App\Http\Controllers\Api\ReviewController;
 
-// Auth
-Route::post('/login', [AuthController::class, 'login']);
+// ==============================================
+// PUBLIC ROUTES (tanpa login)
+// ==============================================
 Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
 
-// Protected routes
-Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/agen', [AgenController::class, 'index']);
-    Route::post('/agen', [AgenController::class, 'store']);
-    Route::get('/search', [SearchController::class, 'index']);
+// Destinasi
+Route::get('/destinations', [DestinationController::class, 'index']);
+Route::get('/destinations/{id}', [DestinationController::class, 'show']);
+Route::get('/categories', [DestinationController::class, 'categories']);
+
+// Paket Wisata
+Route::get('/tour-packages', [TourPackageController::class, 'index']);
+Route::get('/tour-packages/{id}', [TourPackageController::class, 'show']);
+Route::get('/tour-packages/{id}/check-availability', [TourPackageController::class, 'checkAvailability']);
+
+// Kendaraan
+Route::get('/vehicles', [VehicleController::class, 'index']);
+Route::get('/vehicles/{id}', [VehicleController::class, 'show']);
+
+// ==============================================
+// PROTECTED ROUTES (pakai token)
+// ==============================================
+Route::middleware(['auth:sanctum'])->group(function () {
+    
+    // Auth
     Route::post('/logout', [AuthController::class, 'logout']);
+    Route::get('/profile', [AuthController::class, 'profile']);
+    
+    // Booking
+    Route::post('/bookings', [BookingController::class, 'store']);
+    Route::get('/my-bookings', [BookingController::class, 'myBookings']);
+    Route::get('/bookings/{id}', [BookingController::class, 'show']);
+    Route::delete('/bookings/{id}/cancel', [BookingController::class, 'cancel']);
 });
