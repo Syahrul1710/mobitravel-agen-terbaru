@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Agen;
 use App\Http\Controllers\Controller;
 use App\Models\TourPackage;
 use App\Models\Destination;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -27,7 +28,8 @@ class TourPackageController extends Controller
         $destinations = Destination::where('agent_id', Auth::guard('agent')->id())
             ->where('status', 'active')
             ->get();
-        return view('agen.tour-packages.create', compact('destinations'));
+        $categories = Category::all();
+        return view('agen.tour-packages.create', compact('destinations', 'categories'));
     }
 
     // Simpan paket
@@ -35,6 +37,7 @@ class TourPackageController extends Controller
     {
         $request->validate([
             'destination_id' => 'required|exists:destinations,id',
+            'category_id' => 'required|exists:categories,id',
             'name' => 'required|string|max:255',
             'description' => 'required|string',
             'duration' => 'required|string|max:100',
@@ -47,6 +50,7 @@ class TourPackageController extends Controller
         $package = TourPackage::create([
             'agent_id' => Auth::guard('agent')->id(),
             'destination_id' => $request->destination_id,
+            'category_id' => $request->category_id,
             'name' => $request->name,
             'slug' => Str::slug($request->name) . '-' . uniqid(),
             'description' => $request->description,
@@ -79,7 +83,8 @@ class TourPackageController extends Controller
         $destinations = Destination::where('agent_id', Auth::guard('agent')->id())
             ->where('status', 'active')
             ->get();
-        return view('agen.tour-packages.edit', compact('package', 'destinations'));
+        $categories = Category::all();
+        return view('agen.tour-packages.edit', compact('package', 'destinations', 'categories'));
     }
 
     // Update paket
@@ -90,6 +95,7 @@ class TourPackageController extends Controller
 
         $request->validate([
             'destination_id' => 'required|exists:destinations,id',
+            'category_id' => 'required|exists:categories,id',
             'name' => 'required|string|max:255',
             'description' => 'required|string',
             'duration' => 'required|string|max:100',
@@ -99,6 +105,7 @@ class TourPackageController extends Controller
 
         $package->update([
             'destination_id' => $request->destination_id,
+            'category_id' => $request->category_id,
             'name' => $request->name,
             'description' => $request->description,
             'duration' => $request->duration,

@@ -186,15 +186,15 @@
 <div class="sidebar">
     <h2>MobiTravel</h2>
     <ul class="sidebar-menu">
-        <li><a href="{{ route('agen.dashboard') }}" class="@yield('menu-dashboard', '')">📊 Dashboard</a></li>
-        <li><a href="{{ route('agen.destinations.index') }}" class="@yield('menu-destinasi', '')">📍 Destinasi</a></li>
-        <li><a href="{{ route('agen.tour-packages.index') }}" class="@yield('menu-paket', '')">✈️ Paket Wisata</a></li>
-        <li><a href="{{ route('agen.bookings.index') }}" class="@yield('menu-pemesanan', '')">📋 Pemesanan</a></li>
-        <li><a href="{{ route('agen.profile.index') }}" class="@yield('menu-profil', '')">👤 Profil</a></li>
+        <li><a href="{{ route('agen.dashboard') }}" class="@yield('menu-dashboard', '')">Dashboard</a></li>
+        <li><a href="{{ route('agen.destinations.index') }}" class="@yield('menu-destinasi', '')">Destinasi</a></li>
+        <li><a href="{{ route('agen.tour-packages.index') }}" class="@yield('menu-paket', '')">Paket Wisata</a></li>
+        <li><a href="{{ route('agen.bookings.index') }}" class="@yield('menu-pemesanan', '')">Pemesanan</a></li>
+        <li><a href="{{ route('agen.profile.index') }}" class="@yield('menu-profil', '')">Profil</a></li>
     </ul>
     <form method="POST" action="{{ route('agen.logout') }}">
         @csrf
-        <button type="submit" class="logout-btn">🚪 Logout</button>
+        <button type="submit" class="logout-btn">Logout</button>
     </form>
 </div>
 
@@ -211,7 +211,7 @@
     <!-- Edit Profil -->
     <div class="card">
         <div class="card-header">
-            <h2>👤 Edit Profil Agen</h2>
+            <h2>Edit Profil Agen</h2>
         </div>
         
         <form action="{{ route('agen.profile.update') }}" method="POST">

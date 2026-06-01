@@ -214,16 +214,16 @@
 <div class="sidebar">
     <h2>MobiTravel</h2>
     <ul class="sidebar-menu">
-        <li><a href="{{ route('agen.dashboard') }}" class="active">📊 Dashboard</a></li>
-        <li><a href="{{ route('agen.destinations.index') }}">📍 Destinasi</a></li>
-        <li><a href="{{ route('agen.tour-packages.index') }}">✈️ Paket Wisata</a></li>
-        <li><a href="{{ route('agen.vehicles.index') }}">🚗 Kendaraan</a></li>
-        <li><a href="{{ route('agen.bookings.index') }}">📋 Pemesanan</a></li>
-        <li><a href="{{ route('agen.profile.index') }}">👤 Profil</a></li>
+        <li><a href="{{ route('agen.dashboard') }}" class="active">Dashboard</a></li>
+        <li><a href="{{ route('agen.destinations.index') }}">Destinasi</a></li>
+        <li><a href="{{ route('agen.tour-packages.index') }}">Paket Wisata</a></li>
+        <li><a href="{{ route('agen.vehicles.index') }}">Kendaraan</a></li>
+        <li><a href="{{ route('agen.bookings.index') }}">Pemesanan</a></li>
+        <li><a href="{{ route('agen.profile.index') }}">Profil</a></li>
     </ul>
     <form method="POST" action="{{ route('agen.logout') }}">
         @csrf
-        <button type="submit" class="logout-btn">🚪 Logout</button>
+        <button type="submit" class="logout-btn">Logout</button>
     </form>
 </div>
 
@@ -243,15 +243,15 @@
                 @endif
             </div>
             <div class="profile-info">
-                <h3>👋 Selamat Datang, {{ $agent->agency_name }}!</h3>
+                <h3>Selamat Datang, {{ $agent->agency_name }}!</h3>
                 <p>{{ $agent->email }} | {{ $agent->phone }} | {{ $agent->city }}</p>
                 <p>Status: 
                     @if($agent->status == 'active')
-                        <span class="badge-active">✅ Aktif</span>
+                        <span class="badge-active">Aktif</span>
                     @elseif($agent->status == 'pending')
-                        <span class="badge-pending">⏳ Menunggu Verifikasi</span>
+                        <span class="badge-pending">Menunggu Verifikasi</span>
                     @else
-                        <span class="badge-suspended">❌ Ditangguhkan</span>
+                        <span class="badge-suspended">Ditangguhkan</span>
                     @endif
                 </p>
             </div>
@@ -289,7 +289,7 @@
             <p>Total Pendapatan</p>
         </div>
         <div class="stat-card">
-            <h3>⭐ {{ number_format($averageRating ?? 0, 1) }}</h3>
+            <h3>{{ number_format($averageRating ?? 0, 1) }}</h3>
             <p>Rating Rata-rata</p>
         </div>
     </div>
@@ -297,20 +297,20 @@
     <!-- Quick Actions -->
     <div class="card">
         <div class="card-header">
-            <h2>⚡ Aksi Cepat</h2>
+            <h2>Aksi Cepat</h2>
         </div>
         <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-            <a href="{{ route('agen.destinations.create') }}" class="btn btn-primary">📍 Tambah Destinasi</a>
-            <a href="{{ route('agen.tour-packages.create') }}" class="btn btn-primary">✈️ Tambah Paket Wisata</a>
-            <a href="{{ route('agen.vehicles.create') }}" class="btn btn-primary">🚗 Tambah Kendaraan</a>
-            <a href="{{ route('agen.bookings.index') }}" class="btn btn-primary">📋 Lihat Pemesanan</a>
+            <a href="{{ route('agen.destinations.create') }}" class="btn btn-primary">Tambah Destinasi</a>
+            <a href="{{ route('agen.tour-packages.create') }}" class="btn btn-primary">Tambah Paket Wisata</a>
+            <a href="{{ route('agen.vehicles.create') }}" class="btn btn-primary">Tambah Kendaraan</a>
+            <a href="{{ route('agen.bookings.index') }}" class="btn btn-primary">Lihat Pemesanan</a>
         </div>
     </div>
     
     <!-- Peraturan & Ketentuan -->
     <div class="card">
         <div class="card-header">
-            <h2>📜 Peraturan & Ketentuan Agen</h2>
+            <h2>Peraturan & Ketentuan Agen</h2>
         </div>
         <ul class="rules-list">
             @foreach($rules as $rule)
@@ -318,8 +318,8 @@
             @endforeach
         </ul>
         <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #e8dfc8; font-size: 12px; color: #7a7a6e;">
-            <p>⚠️ Pelanggaran terhadap ketentuan di atas dapat mengakibatkan suspend atau penutupan akun secara permanen.</p>
-            <p>📞 Untuk pertanyaan lebih lanjut, hubungi admin melalui email: admin@mobitravel.com</p>
+            <p>Pelanggaran terhadap ketentuan di atas dapat mengakibatkan suspend atau penutupan akun secara permanen.</p>
+            <p>Untuk pertanyaan lebih lanjut, hubungi admin melalui email: admin@mobitravel.com</p>
         </div>
     </div>
     

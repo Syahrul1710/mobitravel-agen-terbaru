@@ -2,20 +2,21 @@
 
 namespace Database\Seeders;
 
+use App\Models\Admin;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class AdminSeeder extends Seeder
 {
     public function run(): void
     {
-        DB::table('admins')->insert([
-            'name' => 'Super Admin',
-            'email' => 'admin@mobitravel.com',
-            'password' => Hash::make('password123'),
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
+        // Cek apakah admin sudah ada
+        if (Admin::where('email', 'admin@mobitravel.com')->doesntExist()) {
+            Admin::create([
+                'name' => 'Super Admin',
+                'email' => 'admin@mobitravel.com',
+                'password' => Hash::make('password123'),
+            ]);
+        }
     }
 }

@@ -69,7 +69,7 @@
     <div class="main-content">
         <div class="card">
             <div class="card-header">
-                <h2>🗺️ Daftar Rute Paket</h2>
+                <h2>Daftar Rute Paket</h2>
                 <a href="{{ route('agen.route-packages.create') }}" class="btn btn-primary">+ Tambah Rute</a>
             </div>
             

@@ -87,19 +87,19 @@
     <div class="sidebar">
         <h2>MobiTravel</h2>
         <ul class="sidebar-menu">
-            <li><a href="{{ route('agen.dashboard') }}">📊 Dashboard</a></li>
-            <li><a href="{{ route('agen.destinations.index') }}">📍 Destinasi</a></li>
-            <li><a href="{{ route('agen.tour-packages.index') }}">✈️ Paket Wisata</a></li>
-            <li><a href="{{ route('agen.vehicles.index') }}" class="active">🚗 Kendaraan</a></li>
-            <li><a href="{{ route('agen.bookings.index') }}">📋 Pemesanan</a></li>
-            <li><a href="{{ route('agen.profile.index') }}">👤 Profil</a></li>
+            <li><a href="{{ route('agen.dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ route('agen.destinations.index') }}">Destinasi</a></li>
+            <li><a href="{{ route('agen.tour-packages.index') }}">Paket Wisata</a></li>
+            <li><a href="{{ route('agen.vehicles.index') }}" class="active">Kendaraan</a></li>
+            <li><a href="{{ route('agen.bookings.index') }}">Pemesanan</a></li>
+            <li><a href="{{ route('agen.profile.index') }}">Profil</a></li>
         </ul>
-        <form method="POST" action="{{ route('agen.logout') }}">@csrf<button type="submit" class="logout-btn">🚪 Logout</button></form>
+        <form method="POST" action="{{ route('agen.logout') }}">@csrf<button type="submit" class="logout-btn">Logout</button></form>
     </div>
     
     <div class="main-content">
         <div class="card">
-            <div class="card-header"><h2>✏️ Edit Kendaraan</h2></div>
+            <div class="card-header"><h2>Edit Kendaraan</h2></div>
             <form action="{{ route('agen.vehicles.update', $vehicle->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')

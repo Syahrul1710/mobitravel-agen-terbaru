@@ -67,12 +67,12 @@
     <div class="sidebar">
         <h2>MobiTravel</h2>
         <ul class="sidebar-menu">
-            <li><a href="{{ route('agen.dashboard') }}">📊 Dashboard</a></li>
-            <li><a href="{{ route('agen.destinations.index') }}">📍 Destinasi</a></li>
-            <li><a href="{{ route('agen.tour-packages.index') }}">✈️ Paket Wisata</a></li>
-            <li><a href="{{ route('agen.vehicles.index') }}">🚗 Kendaraan</a></li>
-            <li><a href="{{ route('agen.bookings.index') }}" class="active">📋 Pemesanan</a></li>
-            <li><a href="{{ route('agen.profile.index') }}">👤 Profil</a></li>
+            <li><a href="{{ route('agen.dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ route('agen.destinations.index') }}">Destinasi</a></li>
+            <li><a href="{{ route('agen.tour-packages.index') }}">Paket Wisata</a></li>
+            <li><a href="{{ route('agen.vehicles.index') }}">Kendaraan</a></li>
+            <li><a href="{{ route('agen.bookings.index') }}" class="active">Pemesanan</a></li>
+            <li><a href="{{ route('agen.profile.index') }}">Profil</a></li>
         </ul>
         <form method="POST" action="{{ route('agen.logout') }}">@csrf<button type="submit" class="logout-btn">Logout</button></form>
     </div>
@@ -86,14 +86,14 @@
         </div>
         
         <div class="card">
-            <div class="card-header"><h2>📋 Daftar Pemesanan</h2></div>
+            <div class="card-header"><h2>Daftar Pemesanan</h2></div>
             
             <form method="GET" class="filter-form">
                 <input type="text" name="search" placeholder="Cari kode/nama/email..." value="{{ request('search') }}">
                 <select name="type">
                     <option value="">Semua Jenis</option>
-                    <option value="package" {{ request('type') == 'package' ? 'selected' : '' }}>✈️ Paket Wisata</option>
-                    <option value="vehicle" {{ request('type') == 'vehicle' ? 'selected' : '' }}>🚗 Kendaraan</option>
+                    <option value="package" {{ request('type') == 'package' ? 'selected' : '' }}>Paket Wisata</option>
+                    <option value="vehicle" {{ request('type') == 'vehicle' ? 'selected' : '' }}>Kendaraan</option>
                 </select>
                 <select name="status">
                     <option value="">Semua Status</option>
@@ -130,9 +130,9 @@
                         </td>
                         <td>
                             @if($booking->booking_type == 'package')
-                                ✈️ Paket Wisata
+                                Paket Wisata
                             @else
-                                🚗 Kendaraan
+                                Kendaraan
                             @endif
                         </td>
                         <td>
@@ -142,18 +142,18 @@
                             @else
                                 <strong>{{ $booking->vehicle->name ?? '-' }}</strong><br>
                                 <small>{{ $booking->pickup_location }} → {{ $booking->dropoff_location }}</small><br>
-                                <small>Sopir: {{ $booking->with_driver ? '✅ Ya' : '❌ Tidak' }}</small>
+                                <small>Sopir: {{ $booking->with_driver ? 'Ya' : 'Tidak' }}</small>
                             @endif
                         </td>
                         <td>{{ $booking->created_at->format('d/m/Y') }}<br><small>{{ $booking->travel_date ?? '-' }}</small></td>
                         <td>Rp {{ number_format($booking->total_price, 0, ',', '.') }}</td>
                         <td>
                             @if($booking->payment_status == 'paid')
-                                <span class="badge-paid">✅ Lunas</span>
+                                <span class="badge-paid">Lunas</span>
                             @elseif($booking->payment_status == 'pending')
-                                <span class="badge-pending">⏳ Menunggu</span>
+                                <span class="badge-pending">Menunggu</span>
                             @else
-                                <span class="badge-expired">❌ Kadaluarsa</span>
+                                <span class="badge-expired">Kadaluarsa</span>
                             @endif
                         </td>
                         <td>

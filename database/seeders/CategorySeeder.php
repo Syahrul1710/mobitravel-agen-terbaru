@@ -11,21 +11,21 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         $categories = [
-            ['name' => 'Gunung', 'icon' => '🏔️'],
-            ['name' => 'Pantai', 'icon' => '🏖️'],
-            ['name' => 'Budaya', 'icon' => '🏛️'],
-            ['name' => 'Kuliner', 'icon' => '🍜'],
-            ['name' => 'Alam', 'icon' => '🌲'],
-            ['name' => 'Sejarah', 'icon' => '📜'],
-            ['name' => 'Petualangan', 'icon' => '🧗'],
-            ['name' => 'Religi', 'icon' => '🕌'],
+            ['name' => 'Pantai'],
+            ['name' => 'Gunung'],
+            ['name' => 'Budaya'],
+            ['name' => 'Kuliner'],
+            ['name' => 'Diving'],
+            ['name' => 'Alam'],
+            ['name' => 'Sejarah'],
+            ['name' => 'Petualangan'],
+            ['name' => 'Religi'],
         ];
 
         foreach ($categories as $category) {
             DB::table('categories')->insert([
                 'name' => $category['name'],
                 'slug' => Str::slug($category['name']),
-                'icon' => $category['icon'],
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

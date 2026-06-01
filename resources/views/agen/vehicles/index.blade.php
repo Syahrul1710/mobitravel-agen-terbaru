@@ -97,23 +97,23 @@
 <div class="sidebar">
     <h2>MobiTravel</h2>
     <ul class="sidebar-menu">
-        <li><a href="{{ route('agen.dashboard') }}">📊 Dashboard</a></li>
-        <li><a href="{{ route('agen.destinations.index') }}">📍 Destinasi</a></li>
-        <li><a href="{{ route('agen.tour-packages.index') }}">✈️ Paket Wisata</a></li>
-        <li><a href="{{ route('agen.vehicles.index') }}" class="active">🚗 Kendaraan</a></li>
-        <li><a href="{{ route('agen.bookings.index') }}">📋 Pemesanan</a></li>
-        <li><a href="{{ route('agen.profile.index') }}">👤 Profil</a></li>
+        <li><a href="{{ route('agen.dashboard') }}">Dashboard</a></li>
+        <li><a href="{{ route('agen.destinations.index') }}">Destinasi</a></li>
+        <li><a href="{{ route('agen.tour-packages.index') }}">Paket Wisata</a></li>
+        <li><a href="{{ route('agen.vehicles.index') }}" class="active">Kendaraan</a></li>
+        <li><a href="{{ route('agen.bookings.index') }}">Pemesanan</a></li>
+        <li><a href="{{ route('agen.profile.index') }}">Profil</a></li>
     </ul>
     <form method="POST" action="{{ route('agen.logout') }}">
         @csrf
-        <button type="submit" class="logout-btn">🚪 Logout</button>
+        <button type="submit" class="logout-btn">Logout</button>
     </form>
 </div>
 
 <div class="main-content">
     <div class="card">
         <div class="card-header">
-            <h2>🚗 Daftar Kendaraan</h2>
+            <h2>Daftar Kendaraan</h2>
             <a href="{{ route('agen.vehicles.create') }}" class="btn btn-primary">+ Tambah Kendaraan</a>
         </div>
         
@@ -206,7 +206,7 @@
         modal.style.alignItems = 'center';
         modal.style.justifyContent = 'center';
         modal.style.zIndex = '9999';
-        modal.innerHTML = `<div style="background:white; padding:20px; border-radius:12px; max-width:500px; width:90%;"><h3 style="margin-bottom:15px;">🗺️ Daftar Rute</h3>${html}<button onclick="this.closest('div').parentElement.remove()" style="margin-top:15px; padding:8px 16px; background:#1a3328; color:white; border:none; border-radius:6px; cursor:pointer;">Tutup</button></div>`;
+        modal.innerHTML = `<div style="background:white; padding:20px; border-radius:12px; max-width:500px; width:90%;"><h3 style="margin-bottom:15px;">Daftar Rute</h3>${html}<button onclick="this.closest('div').parentElement.remove()" style="margin-top:15px; padding:8px 16px; background:#1a3328; color:white; border:none; border-radius:6px; cursor:pointer;">Tutup</button></div>`;
         document.body.appendChild(modal);
     }
 </script>

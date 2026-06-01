@@ -33,6 +33,18 @@
                     @endforeach
                 </select>
             </div>
+
+            <div class="form-group">
+                <label>Kategori *</label>
+                <select name="category_id" class="form-control" required>
+                    <option value="">-- Pilih Kategori --</option>
+                    @foreach($categories as $category)
+                    <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                        {{ $category->name }}
+                    </option>
+                    @endforeach
+                </select>
+            </div>
             
             <div class="form-group">
                 <label>Nama Paket *</label>

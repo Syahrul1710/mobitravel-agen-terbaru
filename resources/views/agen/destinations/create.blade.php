@@ -23,7 +23,7 @@
                 <select name="category_id" class="form-control" required>
                     <option value="">Pilih Kategori</option>
                     @foreach($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->icon }} {{ $category->name }}</option>
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach
                 </select>
                 @error('category_id') <small class="error">{{ $message }}</small> @enderror

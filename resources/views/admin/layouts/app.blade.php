@@ -241,14 +241,14 @@
 <div class="sidebar">
     <h2>MobiTravel Admin</h2>
     <ul class="sidebar-menu">
-        <li><a href="{{ route('admin.dashboard') }}" class="@yield('menu-dashboard')">📊 Dashboard</a></li>
-        <li><a href="{{ route('admin.agents.index') }}" class="@yield('menu-agents')">✅ Verifikasi Agen</a></li>
-        <li><a href="{{ route('admin.users.index') }}" class="@yield('menu-users')">👥 Manajemen User</a></li>
-        <li><a href="{{ route('admin.bookings.index') }}" class="@yield('menu-bookings')">📝 Pemesanan</a></li>
+        <li><a href="{{ route('admin.dashboard') }}" class="@yield('menu-dashboard')">Dashboard</a></li>
+        <li><a href="{{ route('admin.agents.index') }}" class="@yield('menu-agents')">Verifikasi Agen</a></li>
+        <li><a href="{{ route('admin.users.index') }}" class="@yield('menu-users')">Manajemen User</a></li>
+        <li><a href="{{ route('admin.bookings.index') }}" class="@yield('menu-bookings')">Pemesanan</a></li>
     </ul>
     <form method="POST" action="{{ route('admin.logout') }}">
         @csrf
-        <button type="submit" class="logout-btn">🚪 Logout</button>
+        <button type="submit" class="logout-btn">Logout</button>
     </form>
 </div>
 

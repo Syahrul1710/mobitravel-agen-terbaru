@@ -176,15 +176,15 @@
 <div class="sidebar">
     <h2>MobiTravel</h2>
     <ul class="sidebar-menu">
-        <li><a href="{{ route('agen.dashboard') }}">📊 Dashboard</a></li>
-        <li><a href="{{ route('agen.destinations.index') }}" class="active">📍 Destinasi</a></li>
-        <li><a href="{{ route('agen.tour-packages.index') }}">✈️ Paket Wisata</a></li>
-        <li><a href="#">📝 Pemesanan</a></li>
-        <li><a href="{{ route('agen.profile.index') }}">👤 Profil</a></li>
+        <li><a href="{{ route('agen.dashboard') }}">Dashboard</a></li>
+        <li><a href="{{ route('agen.destinations.index') }}" class="active">Destinasi</a></li>
+        <li><a href="{{ route('agen.tour-packages.index') }}">Paket Wisata</a></li>
+        <li><a href="{{ route('agen.bookings.index') }}">Pemesanan</a></li>
+        <li><a href="{{ route('agen.profile.index') }}">Profil</a></li>
     </ul>
     <form method="POST" action="{{ route('agen.logout') }}">
         @csrf
-        <button type="submit" class="logout-btn">🚪 Logout</button>
+        <button type="submit" class="logout-btn">Logout</button>
     </form>
 </div>
 
@@ -192,7 +192,7 @@
 <div class="main-content">
     <div class="card">
         <div class="card-header">
-            <h2>✏️ Edit Destinasi Wisata</h2>
+            <h2>Edit Destinasi Wisata</h2>
         </div>
         
         @if(session('success'))
@@ -219,7 +219,7 @@
                         <option value="">Pilih Kategori</option>
                         @foreach($categories as $category)
                         <option value="{{ $category->id }}" {{ $destination->category_id == $category->id ? 'selected' : '' }}>
-                            {{ $category->icon }} {{ $category->name }}
+                            {{ $category->name }}
                         </option>
                         @endforeach
                     </select>

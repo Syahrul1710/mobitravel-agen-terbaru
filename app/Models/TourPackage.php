@@ -14,6 +14,7 @@ class TourPackage extends Model
     protected $fillable = [
         'agent_id',
         'destination_id',
+        'category_id',
         'name',
         'slug',
         'description',
@@ -33,6 +34,12 @@ class TourPackage extends Model
     public function destination()
     {
         return $this->belongsTo(Destination::class);
+    }
+
+    // Relasi ke kategori
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 
     // Relasi ke gambar

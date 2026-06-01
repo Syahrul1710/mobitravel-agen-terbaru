@@ -169,15 +169,15 @@
 <div class="sidebar">
     <h2>MobiTravel</h2>
     <ul class="sidebar-menu">
-        <li><a href="{{ route('agen.dashboard') }}">📊 Dashboard</a></li>
-        <li><a href="{{ route('agen.destinations.index') }}">📍 Destinasi</a></li>
-        <li><a href="{{ route('agen.tour-packages.index') }}" class="active">✈️ Paket Wisata</a></li>
-        <li><a href="#">📝 Pemesanan</a></li>
-        <li><a href="{{ route('agen.profile.index') }}">👤 Profil</a></li>
+        <li><a href="{{ route('agen.dashboard') }}">Dashboard</a></li>
+        <li><a href="{{ route('agen.destinations.index') }}">Destinasi</a></li>
+        <li><a href="{{ route('agen.tour-packages.index') }}" class="active">Paket Wisata</a></li>
+        <li><a href="#">Pemesanan</a></li>
+        <li><a href="{{ route('agen.profile.index') }}">Profil</a></li>
     </ul>
     <form method="POST" action="{{ route('agen.logout') }}">
         @csrf
-        <button type="submit" class="logout-btn">🚪 Logout</button>
+        <button type="submit" class="logout-btn">Logout</button>
     </form>
 </div>
 
@@ -185,7 +185,7 @@
 <div class="main-content">
     <div class="card">
         <div class="card-header">
-            <h2>✏️ Edit Paket Wisata</h2>
+            <h2>Edit Paket Wisata</h2>
         </div>
         
         @if(session('success'))
@@ -207,6 +207,19 @@
                     @endforeach
                 </select>
                 @error('destination_id') <div class="error">{{ $message }}</div> @enderror
+            </div>
+
+            <div class="form-group">
+                <label>Kategori *</label>
+                <select name="category_id" class="form-control" required>
+                    <option value="">Pilih Kategori</option>
+                    @foreach($categories as $category)
+                    <option value="{{ $category->id }}" {{ $package->category_id == $category->id ? 'selected' : '' }}>
+                        {{ $category->name }}
+                    </option>
+                    @endforeach
+                </select>
+                @error('category_id') <div class="error">{{ $message }}</div> @enderror
             </div>
             
             <div class="form-group">

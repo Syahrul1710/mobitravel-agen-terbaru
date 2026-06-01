@@ -211,16 +211,16 @@
 <div class="sidebar">
     <h2>MobiTravel</h2>
     <ul class="sidebar-menu">
-        <li><a href="{{ route('agen.dashboard') }}" class="@yield('menu-dashboard', '')">📊 Dashboard</a></li>
-        <li><a href="{{ route('agen.destinations.index') }}" class="@yield('menu-destinasi', '')">📍 Destinasi</a></li>
-        <li><a href="{{ route('agen.tour-packages.index') }}" class="@yield('menu-paket', '')">✈️ Paket Wisata</a></li>
-        <li><a href="{{ route('agen.vehicles.index') }}" class="@yield('menu-kendaraan', '')">🚗 Kendaraan</a></li>
-        <li><a href="{{ route('agen.bookings.index') }}" class="@yield('menu-pemesanan', '')">📋 Pemesanan</a></li>
-        <li><a href="{{ route('agen.profile.index') }}" class="@yield('menu-profil', '')">👤 Profil</a></li>
+        <li><a href="{{ route('agen.dashboard') }}" class="@yield('menu-dashboard', '')">Dashboard</a></li>
+        <li><a href="{{ route('agen.destinations.index') }}" class="@yield('menu-destinasi', '')">Destinasi</a></li>
+        <li><a href="{{ route('agen.tour-packages.index') }}" class="@yield('menu-paket', '')">Paket Wisata</a></li>
+        <li><a href="{{ route('agen.vehicles.index') }}" class="@yield('menu-kendaraan', '')">Kendaraan</a></li>
+        <li><a href="{{ route('agen.bookings.index') }}" class="@yield('menu-pemesanan', '')">Pemesanan</a></li>
+        <li><a href="{{ route('agen.profile.index') }}" class="@yield('menu-profil', '')">Profil</a></li>
     </ul>
     <form method="POST" action="{{ route('agen.logout') }}">
         @csrf
-        <button type="submit" class="logout-btn">🚪 Logout</button>
+        <button type="submit" class="logout-btn">Logout</button>
     </form>
 </div>
 
@@ -228,9 +228,9 @@
 <div class="main-content">
     <div class="card">
         <div class="card-header">
-            <h2>🗺️ Destinasi Wisata</h2>
+            <h2>Destinasi Wisata</h2>
             <div>
-                <a href="{{ route('agen.tour-packages.index') }}" class="btn btn-primary" style="margin-right: 10px;">✈️ Kelola Paket</a>
+                <a href="{{ route('agen.tour-packages.index') }}" class="btn btn-primary" style="margin-right: 10px;">Kelola Paket</a>
                 <a href="{{ route('agen.destinations.create') }}" class="btn btn-primary">+ Tambah Destinasi</a>
             </div>
         </div>
@@ -273,7 +273,7 @@
                 </tr>
                 @empty
                 <tr>
-                    <td colspan="6" style="text-align:center;">❌ Belum ada destinasi. <a href="{{ route('agen.destinations.create') }}">Tambah sekarang!</a></td>
+                    <td colspan="6" style="text-align:center;">Belum ada destinasi. <a href="{{ route('agen.destinations.create') }}">Tambah sekarang!</a></td>
                 </tr>
                 @endforelse
             </tbody>
