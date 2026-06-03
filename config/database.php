@@ -4,7 +4,7 @@ use Illuminate\Support\Str;
 
 return [
 
-    'default' => env('DB_CONNECTION', 'oracle'),
+    'default' => env('DB_CONNECTION', 'sqlite'),
 
     'connections' => [
 
@@ -50,20 +50,6 @@ return [
             'prefix_indexes' => true,
             'search_path' => 'public',
             'sslmode' => env('DB_SSLMODE', 'prefer'),
-        ],
-
-        // ← tambahan blok oracle
-        'oracle' => [
-            'driver'         => 'oracle',
-            'tns'            => env('DB_TNS', ''),
-            'host'           => env('DB_HOST', '127.0.0.1'),
-            'port'           => env('DB_PORT', '1521'),
-            'database'       => env('DB_DATABASE', ''),
-            'service_name'   => env('DB_DATABASE', 'orclpdb'),
-            'username'       => env('DB_USERNAME', ''),
-            'password'       => env('DB_PASSWORD', ''),
-            'charset'        => env('DB_CHARSET', 'AL32UTF8'),
-            'prefix'         => '',
         ],
 
     ],
